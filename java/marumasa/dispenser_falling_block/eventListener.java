@@ -45,7 +45,7 @@ public class eventListener implements Listener {
             final World world = block.getWorld();
 
             final Dispenser dispenser = (Dispenser) event.getBlock().getState();
-            new itemRemove(dispenser.getInventory(), itemM).runTaskTimer(mc, 0L, 0L);
+            if (con.Consume) new itemRemove(dispenser.getInventory(), itemM).runTaskTimer(mc, 0L, 0L);
             world.spawnFallingBlock(loc, itemM.createBlockData());
             event.setCancelled(true);
             break;

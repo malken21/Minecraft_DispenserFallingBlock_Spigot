@@ -9,3 +9,4 @@ BlockList:
   - "GRAVEL"
   - "POINTED_DRIPSTONE"
 Log: false
+Consume: true
