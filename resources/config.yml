@@ -1,0 +1,11 @@
+BlockList:
+  - "SAND"
+  - "RED_SAND"
+  - "ANVIL"
+  - "CHIPPED_ANVIL"
+  - "DAMAGED_ANVIL"
+  - "SCAFFOLDING"
+  - "DRAGON_EGG"
+  - "GRAVEL"
+  - "POINTED_DRIPSTONE"
+Log: false
