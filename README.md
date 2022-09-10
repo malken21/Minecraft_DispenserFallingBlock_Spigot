@@ -1,0 +1,2 @@
+# Minecraft_DispenserFallingBlock_Spigot
+ディスペンサーからブロックを設置できるようにするSpigotPlugin
