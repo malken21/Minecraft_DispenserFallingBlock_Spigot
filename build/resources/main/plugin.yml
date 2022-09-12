@@ -1,0 +1,4 @@
+name: Dispenser_FallingBlock
+version: '1.0'
+main: marumasa.dispenser_falling_block.minecraft
+api-version: 1.19
