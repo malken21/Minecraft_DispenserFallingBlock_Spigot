@@ -28,27 +28,28 @@ public class eventListener implements Listener {
 
         for (String ConfigM : con.materials) {
             if (!ConfigM.equalsIgnoreCase(itemMS)) continue;
-            //-----start!!-----//
             final Block block = event.getBlock();
+            if (block.getState() instanceof Dispenser dispenser) {
+                //-----start!!-----//
 
-            final Location loc = block.getLocation().add(0.5, 0, 0.5);
-            final String facing = block.getBlockData().getAsString().split("[=,]")[1];
+                final Location loc = block.getLocation().add(0.5, 0, 0.5);
+                final String facing = block.getBlockData().getAsString().split("[=,]")[1];
 
-            switch (facing) {
-                case "east" -> loc.add(1, 0, 0);
-                case "west" -> loc.add(-1, 0, 0);
-                case "up" -> loc.add(0, 1, 0);
-                case "down" -> loc.add(0, -1, 0);
-                case "south" -> loc.add(0, 0, 1);
-                case "north" -> loc.add(0, 0, -1);
-            }
-            final World world = block.getWorld();
+                switch (facing) {
+                    case "east" -> loc.add(1, 0, 0);
+                    case "west" -> loc.add(-1, 0, 0);
+                    case "up" -> loc.add(0, 1, 0);
+                    case "down" -> loc.add(0, -1, 0);
+                    case "south" -> loc.add(0, 0, 1);
+                    case "north" -> loc.add(0, 0, -1);
+                }
+                final World world = block.getWorld();
 
-            final Dispenser dispenser = (Dispenser) event.getBlock().getState();
-            if (con.Consume) new itemRemove(dispenser.getInventory(), itemM).runTaskTimer(mc, 0L, 0L);
-            world.spawnFallingBlock(loc, itemM.createBlockData());
-            event.setCancelled(true);
-            break;
+                if (con.Consume) new itemRemove(dispenser.getInventory(), itemM).runTaskTimer(mc, 0L, 0L);
+                world.spawnFallingBlock(loc, itemM.createBlockData());
+                event.setCancelled(true);
+                break;
+            } else return;
         }
     }
 }
